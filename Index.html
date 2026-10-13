@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraCouture - 3D Digital Atelier</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+<div class="atelier-shell">
+  <aside class="atelier-sidebar" id="atelierSidebar">
+    <div class="brand-box">
+      <div class="brand-logo">A</div>
+      <div><strong>AuraCouture</strong><small>Digital 3D Atelier</small></div>
+    </div>
+    <p class="nav-section-title">ATELIER MODULES</p>
+    <nav class="atelier-nav">
+      <button class="nav-btn active" data-view="sanctuary"><span>✧</span> Sanctuary Hub</button>
+      <button class="nav-btn" data-view="aura"><span>❖</span> Aura Weave</button>
+      <button class="nav-btn" data-view="heritage"><span>⚲</span> Living Heritage</button>
+      <button class="nav-btn" data-view="biomimicry"><span>☥</span> Biomimicry Fit</button>
+      <button class="nav-btn" data-view="passport"><span>⌘</span> Atelier Passport</button>
+    </nav>
+  </aside>
+
+  <main class="atelier-main">
+    <header class="atelier-header">
+      <button class="icon-btn mobile-toggle" id="mobileToggle">☰</button>
+      <div class="breadcrumb-trail"><span>AuraCouture</span><span class="divider">/</span><strong id="activeModuleTitle">Sanctuary Hub</strong></div>
+      <div class="header-right"><span class="live-pulse"></span><div class="user-avatar">AC</div></div>
+    </header>
+
+    <section class="atelier-view active" id="sanctuaryView">
+      <div class="hero-banner">
+        <div class="hero-text">
+          <span class="hero-eyebrow">IMMERSIVE 3D DIGITAL FASHION</span>
+          <h1>Where heritage meets 3D innovation.</h1>
+          <p>Experience luxury modest fashion through synesthetic texture generation, interactive heritage storytelling, and custom biomimicry tailoring.</p>
+          <div class="hero-actions">
+            <button class="btn btn-gold" data-view="aura">Enter Aura Weave →</button>
+            <button class="btn btn-outline-white" data-view="heritage">Explore Heritage</button>
+          </div>
+        </div>
+        <div class="hero-graphic"><div class="rotating-ring ring-1"></div><div class="rotating-ring ring-2"></div><div class="center-monogram">A</div></div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" data-view="aura"><span class="card-symbol">❖</span><h3>Aura Weave</h3><p>Translate emotional muses into generative textile patterns.</p><span class="card-link">Launch →</span></div>
+        <div class="feature-card" data-view="heritage"><span class="card-symbol">⚲</span><h3>Living Heritage</h3><p>Unlock holographic hotspots detailing artisan Adire history.</p><span class="card-link">Explore →</span></div>
+        <div class="feature-card" data-view="biomimicry"><span class="card-symbol">☥</span><h3>Biomimicry Fit</h3><p>Deform the 3D mannequin organically.</p><span class="card-link">Adjust →</span></div>
+        <div class="feature-card" data-view="passport"><span class="card-symbol">⌘</span><h3>Atelier Passport</h3><p>Generate cryptographic order passport.</p><span class="card-link">View →</span></div>
+      </div>
+    </section>
+
+    <section class="atelier-view" id="auraView">
+      <div class="view-header"><span class="eyebrow">SYNTHETIC TEXTURE</span><h2>Aura Weave Studio</h2><p>Select an emotional muse to synthesize a live pattern.</p></div>
+      <div class="atelier-grid">
+        <div class="atelier-panel">
+          <h3>Choose Emotional Muse</h3>
+          <div class="muse-grid">
+            <button class="muse-btn active" data-muse="harmattan" style="background: linear-gradient(135deg, #8B4513, #D4AF37);"><strong>Harmattan Sunrise</strong></button>
+            <button class="muse-btn" data-muse="midnight" style="background: linear-gradient(135deg, #0B1D3A, #1B365D);"><strong>Midnight Rain</strong></button>
+            <button class="muse-btn" data-muse="royal" style="background: linear-gradient(135deg, #2D0C2F, #7B1FA2);"><strong>Royal Adire</strong></button>
+            <button class="muse-btn" data-muse="desert" style="background: linear-gradient(135deg, #5D4037, #A1887F);"><strong>Desert Oasis</strong></button>
+          </div>
+          <button class="btn btn-gold btn-full" id="regenerateAura" style="margin-top:20px">Synthesize Weave</button>
+        </div>
+        <div class="atelier-panel canvas-panel">
+          <div class="canvas-header-bar"><span>LIVE 3D RENDERER (THREE.JS)</span><span class="badge-gold">360°</span></div>
+          <div id="threeContainer" class="three-container"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="atelier-view" id="heritageView">
+      <div class="view-header"><span class="eyebrow">STORYTELLING</span><h2>Living Heritage</h2><p>Explore sacred geometry and artisan history.</p></div>
+      <div class="heritage-layout">
+        <div class="heritage-viewer-card">
+          <div class="heritage-graphic-stage">
+            <div class="hotspot-target" style="top: 30%; left: 50%;" data-hotspot="neckline"><span class="pulse-ring"></span><span class="hotspot-label">Neckline</span></div>
+            <div class="hotspot-target" style="top: 55%; left: 40%;" data-hotspot="core"><span class="pulse-ring"></span><span class="hotspot-label">Core</span></div>
+            <div class="hotspot-target" style="top: 80%; left: 60%;" data-hotspot="hem"><span class="pulse-ring"></span><span class="hotspot-label">Hem</span></div>
+            <div class="heritage-silhouette-mock"></div>
+          </div>
+        </div>
+        <div class="atelier-panel heritage-info-panel" id="heritageInfoPanel"><h3>Select a Hotspot</h3><p>Tap a marker on the garment silhouette.</p></div>
+      </div>
+    </section>
+
+    <section class="atelier-view" id="biomimicryView">
+      <div class="view-header"><span class="eyebrow">TAILORING</span><h2>Biomimicry Fit</h2><p>Input proportions to deform mannequin.</p></div>
+      <div class="atelier-grid">
+        <div class="atelier-panel">
+          <label>Bust (<span id="valBust">96</span> cm)</label><input type="range" id="sliderBust" min="80" max="130" value="96">
+          <label>Waist (<span id="valWaist">78</span> cm)</label><input type="range" id="sliderWaist" min="60" max="110" value="78">
+          <label>Hip (<span id="valHip">104</span> cm)</label><input type="range" id="sliderHip" min="85" max="140" value="104">
+          <label>Height (<span id="valHeight">168</span> cm)</label><input type="range" id="sliderHeight" min="150" max="190" value="168">
+        </div>
+        <div class="atelier-panel canvas-panel">
+          <div class="canvas-header-bar"><span>TENSION MESH</span><span class="badge-gold">Deform</span></div>
+          <div id="biomimicryContainer" class="three-container"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="atelier-view" id="passportView">
+      <div class="view-header"><span class="eyebrow">HANDSHAKE</span><h2>Atelier Passport</h2><p>Secure cryptographic passport for workshop transmission.</p></div>
+      <div class="passport-card">
+        <div class="passport-header"><div class="passport-badge">PASSPORT</div><span id="passportId" class="passport-code">AC-9842-ABY</span></div>
+        <div class="passport-body">
+          <div class="passport-specs">
+            <div class="spec-row"><span>Status:</span><strong>Active Bespoke</strong></div>
+            <div class="spec-row"><span>Engine:</span><strong>Three.js 3D</strong></div>
+          </div>
+          <div class="qr-box"><div class="qr-code-mock"><div class="qr-inner"><span>❖</span></div></div></div>
+        </div>
+        <div class="passport-footer">
+          <button class="btn btn-gold" id="transmitOrderBtn">Transmit Order</button>
+          <button class="btn btn-outline" id="downloadPassportBtn">Download JSON</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="atelier-toast" id="atelierToast"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
